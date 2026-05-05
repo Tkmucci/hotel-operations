@@ -8,10 +8,9 @@ public class Room {
     private boolean isDirty;
     private boolean isAvailable;
 
-    public Room( int numberOfBeds, double price, boolean isAvailable, boolean isDirty, boolean isOccupied) {
+    public Room( int numberOfBeds, boolean isAvailable, boolean isDirty, boolean isOccupied) {
 
         this.numberOfBeds = numberOfBeds;
-        this.price = price;
         this.isOccupied = isOccupied;
         this.isDirty = isDirty;
         this.isAvailable = isAvailable;
@@ -55,15 +54,15 @@ public class Room {
 
         if (isDirty)        {
             isAvailable = false;
-            System.out.println("Room is dirty, not available");
+            System.out.println("Needs tidying up, not available");
         }
         else if (isOccupied) {
             isAvailable = false;
-            System.out.println("Room is occupied, not available");
+            System.out.println("Not available, Guests still in");
         }
         else {
             isAvailable = true;
-            System.out.println("Room is clean and unoccupied, available");
+            System.out.println("Room is available");
         }
 
 

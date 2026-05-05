@@ -15,7 +15,6 @@ public class Reservation {
         this.isWeekend = isWeekend;
 
         setRoomType(roomType);
-
     }
 
     public String getRoomType() {
