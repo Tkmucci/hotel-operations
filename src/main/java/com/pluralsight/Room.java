@@ -8,12 +8,11 @@ public class Room {
     private boolean isDirty;
     private boolean isAvailable;
 
-    public Room( int numberOfBeds, boolean isAvailable, boolean isDirty, boolean isOccupied) {
+    public Room(int numberOfBeds, boolean isDirty, boolean isOccupied) {
 
         this.numberOfBeds = numberOfBeds;
         this.isOccupied = isOccupied;
         this.isDirty = isDirty;
-        this.isAvailable = isAvailable;
 
     }
 
@@ -49,29 +48,73 @@ public class Room {
         this.isDirty = dirty;
     }
 
+
     public boolean isAvailable() {
 
 
-        if (isDirty)        {
+        if (isDirty) {
+
             isAvailable = false;
-            System.out.println("Needs tidying up, not available");
-        }
-        else if (isOccupied) {
+//            System.out.println("Needs tidying up, not available");
+        } else if (isOccupied) {
             isAvailable = false;
-            System.out.println("Not available, Guests still in");
-        }
-        else {
+//            System.out.println("Not available, Guests still in");
+        } else {
             isAvailable = true;
             System.out.println("Room is available");
         }
 
 
-     return isAvailable;
+        return isAvailable;
     }
 
     public void setAvailable(boolean available) {
 
         isAvailable = available;
+
+    }
+
+    public void checkIn() {
+
+        if (isAvailable()) {
+
+            isOccupied = true;
+            isDirty = true;
+            System.out.println("Guest checked in, room is now occupied and dirty");
+        } else {
+            System.out.println("Cannot check in, room is not available");
+        }
+    }
+
+    public void checkOut() throws InterruptedException {
+
+            isOccupied = false;
+            System.out.println("Guest checked out, room needs cleaning");
+
+        for (int i = 5; i >= 1 ; i--) {
+
+            //Thread.sleep(1000);
+            if (i == 5){
+
+                System.out.println("CLEANING ROOM");
+
+            }
+
+            Thread.sleep(1000);
+
+            if (i == 1){
+                cleanRoom();
+            }
+
+        }
+
+
+    }
+
+    public void cleanRoom() {
+
+            isDirty = false;
+            System.out.println("Room cleaned, Ready for next guest");
 
     }
 }

@@ -8,6 +8,7 @@ public class Employee {
     private String department;
     private double payRate;
     private double hoursWorked;
+    private int punchInTime;
 
     public Employee(int employeeId, String firstName, String lastName, String department, double payRate, double hoursWorked) {
         this.employeeId = employeeId;
@@ -96,5 +97,40 @@ public class Employee {
             return hoursWorked - 40;
         }
         return 0;
+    }
+    public void punchTimeCard(int timeIn , int timeOut){
+
+        this.punchIn(timeIn);
+
+        this.punchOut(timeOut);
+
+        double hoursWorked = timeOut - timeIn;
+
+        setHoursWorked(hoursWorked + this.hoursWorked) ;
+
+        System.out.println("Shift hours worked " + hoursWorked);
+
+
+
+    }
+    public void punchIn(int time) {
+
+        this.punchInTime = time;
+
+        //System.out.println("Employee " + getFullName() + " punched in at " + time );
+    }
+    public void punchIn(){
+
+    }
+    public void punchOut( int time) {
+
+        //this.hoursWorked += time - punchInTime;
+
+//        setHoursWorked(hoursWorked);
+//
+//        System.out.println("Total hours worked " + hoursWorked);
+    }
+    public void punchOut(){
+
     }
 }

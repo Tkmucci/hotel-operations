@@ -43,8 +43,6 @@ public class Reservation {
 
     public double getPrice() {
 
-
-
         return price;
     }
 
@@ -65,7 +63,7 @@ public class Reservation {
 
         double upcharge = 0.1;
 
-        reservationTotal = price * numberOfNights;
+        reservationTotal = this.getPrice() * this.getNumberOfNights();
 
         if (isWeekend) {
 
