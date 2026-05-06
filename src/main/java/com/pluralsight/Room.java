@@ -80,23 +80,23 @@ public class Room {
 
             isOccupied = true;
             isDirty = true;
-            System.out.println("Guest checked in, room is now occupied and dirty");
+            //System.out.println("Guest checked in, room is now occupied and dirty");
         } else {
-            System.out.println("Cannot check in, room is not available");
+            //System.out.println("Cannot check in, room is not available");
         }
     }
 
     public void checkOut() throws InterruptedException {
 
             isOccupied = false;
-            System.out.println("Guest checked out, room needs cleaning");
+            //System.out.println("Guest checked out, room needs cleaning");
 
         for (int i = 5; i >= 1 ; i--) {
 
             //Thread.sleep(1000);
             if (i == 5){
 
-                System.out.println("CLEANING ROOM");
+                //System.out.println("CLEANING ROOM");
 
             }
 
