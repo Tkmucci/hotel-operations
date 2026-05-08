@@ -9,6 +9,7 @@ public class Employee {
     private double payRate;
     private double hoursWorked;
     private int punchInTime;
+    private int punchOutTime;
 
     public Employee(int employeeId, String firstName, String lastName, String department, double payRate, double hoursWorked) {
         this.employeeId = employeeId;
@@ -106,7 +107,8 @@ public class Employee {
 
         double hoursWorked = timeOut - timeIn;
 
-        setHoursWorked(hoursWorked + this.hoursWorked) ;
+//        this.setHoursWorked(hoursWorked + this.hoursWorked) ;
+        this.hoursWorked += hoursWorked;
 
         System.out.println("Shift hours worked " + hoursWorked);
 
@@ -124,7 +126,10 @@ public class Employee {
     }
     public void punchOut( int time) {
 
-        //this.hoursWorked += time - punchInTime;
+
+        punchOutTime = time;
+
+        // this.hoursWorked += time - punchInTime;
 
 //        setHoursWorked(hoursWorked);
 //
